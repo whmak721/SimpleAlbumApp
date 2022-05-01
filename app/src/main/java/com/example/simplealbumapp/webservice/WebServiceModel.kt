@@ -1,4 +1,4 @@
-package com.example.simplealbumapp
+package com.example.simplealbumapp.webservice
 
 import android.util.Log
 import okhttp3.OkHttpClient
