@@ -10,4 +10,7 @@
     <string name="menu_album_list">Album List</string>
     <string name="menu_bookmark">Bookmark</string>
     <string name="release_date">Release Date: {R1}</string>
+    <string name="added_to_bookmark">Added to Bookmark</string>
+    <string name="remove_from_bookmark">Removed from Bookmark</string>
+    <string name="explicit_tag">Explicit</string>
 </resources>

@@ -35,5 +35,9 @@ data class Album(
         get() = collectionExplicitness == "explicit"
 
     val formattedPrice: String
-        get() = "$currency $collectionPrice"
+        get() {
+            if (collectionPrice.compareTo(0) == 0)
+                return "-"
+            return "$currency $collectionPrice"
+        }
 }

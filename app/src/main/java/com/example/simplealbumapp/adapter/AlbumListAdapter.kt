@@ -62,10 +62,10 @@ class AlbumListAdapter(private var data: ArrayList<Album>) :
                     setOnClickListener {
                         if (!this.isSelected) {
                             saveBookmark(position)
-                            Snackbar.make(this, "saveBookmark", Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(this, context.getString(R.string.added_to_bookmark), Snackbar.LENGTH_SHORT).show();
                         } else {
                             removeBookmark(position)
-                            Snackbar.make(this, "removeBookmark", Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(this, context.getString(R.string.remove_from_bookmark), Snackbar.LENGTH_SHORT).show();
                         }
                         isSelected = !isSelected
                     }

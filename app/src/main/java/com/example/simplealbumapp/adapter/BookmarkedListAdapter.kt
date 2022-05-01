@@ -34,9 +34,6 @@ class BookmarkedListAdapter(private var data: ArrayList<Album>) :
     }
 
     private fun removeItem(position: Int) {
-        Log.e("allen debug removeItem position: ", position.toString())
-        Log.e("allen debug removeItem data.size", data.size.toString())
-
         SharedPreference(context = mContext).removeBookmark(
             SharedPreference.DATA,
             data[position].collectionId.toString()
@@ -61,7 +58,7 @@ class BookmarkedListAdapter(private var data: ArrayList<Album>) :
 
                 ivRemove.setOnClickListener {
                     removeItem(position)
-                    Snackbar.make(it, "removeBookmark", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(it, mContext.getString(R.string.remove_from_bookmark), Snackbar.LENGTH_SHORT).show()
                 }
             }
 
