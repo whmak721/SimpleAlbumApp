@@ -4,18 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplealbumapp.util.SharedPreference
 import com.example.simplealbumapp.viewmodel.ViewModel
 import com.example.simplealbumapp.adapter.BookmarkedListAdapter
-import com.example.simplealbumapp.databinding.FragmentGalleryBinding
+import com.example.simplealbumapp.databinding.FragmentBookmarkBinding
 import com.example.simplealbumapp.model.Album
 
 class BookmarkFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentBookmarkBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: ViewModel
     private lateinit var bookmarkedListAdapter: BookmarkedListAdapter
@@ -25,7 +27,7 @@ class BookmarkFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentBookmarkBinding.inflate(inflater, container, false)
 
         viewModel = ViewModelProvider(requireActivity())[ViewModel::class.java]
 
@@ -39,14 +41,21 @@ class BookmarkFragment : Fragment() {
             if (!this::bookmarkedListAdapter.isInitialized) {
                 val bookmarkedList =
                     SharedPreference(requireContext()).readBookmark(SharedPreference.DATA)
-                val data = arrayListOf<Album>()
 
+                val data = arrayListOf<Album>()
                 it.results.forEach { album ->
                     bookmarkedList.forEach { bookmarked ->
                         if (album.collectionId.toString() == bookmarked)
                             data.add(album)
                     }
                 }
+
+                binding.rvBookmarkList.addItemDecoration(
+                    DividerItemDecoration(
+                        requireContext(),
+                        LinearLayoutManager.VERTICAL
+                    )
+                )
 
                 bookmarkedListAdapter = BookmarkedListAdapter(data)
                 binding.rvBookmarkList.apply {
