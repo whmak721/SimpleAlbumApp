@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivAlbumCover"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvExplicitness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/rounded_explicit_tag"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        android:text="Explicit"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/ivAlbumCover"
+        app:layout_constraintTop_toTopOf="@id/ivAlbumCover" />
+
+    <TextView
+        android:id="@+id/tvAlbumName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAlbumCover"
+        app:layout_constraintTop_toBottomOf="@id/tvExplicitness"
+        app:layout_goneMarginStart="10dp"
+        tools:text="tvAlbumName" />
+
+    <TextView
+        android:id="@+id/tvArtistName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAlbumCover"
+        app:layout_constraintTop_toBottomOf="@id/tvAlbumName"
+        tools:text="tvArtistName" />
+
+    <TextView
+        android:id="@+id/tvReleaseDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAlbumCover"
+        app:layout_constraintTop_toBottomOf="@id/tvArtistName"
+        app:layout_constraintVertical_bias="1"
+        tools:text="tvReleaseDate" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAlbumCover"
+        app:layout_constraintTop_toBottomOf="@id/tvReleaseDate"
+        tools:text="tvPrice" />
+
+    <ImageView
+        android:id="@+id/ivRemove"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/remove"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
